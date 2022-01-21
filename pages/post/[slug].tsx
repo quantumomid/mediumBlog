@@ -96,6 +96,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
     };
 
     const PortableTextProps = {
+        className: "",
         dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
         projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
         content: post.body,
@@ -143,6 +144,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
                 <div className="mt-10">
                     <PortableText
                         {...PortableTextProps}
+                        // className=""
                         // dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
                         // projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
                         // content={post.body}
