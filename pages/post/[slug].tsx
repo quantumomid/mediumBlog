@@ -5,6 +5,7 @@ import { sanityClient, urlFor } from "../../sanity"
 import { Post } from "../../typings";
 import PortableText from "react-portable-text";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Comments from "../../components/Comments";
 
 export const getStaticPaths = async () => {
     const query = `
@@ -217,6 +218,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
                     </form>
                     )
             }
+            <Comments comments={post.comments} />
         </main>
     );
 }
