@@ -12,7 +12,7 @@ const Comments:React.FC<CommentsProps> = ({ comments }) => {
             <hr className="pb-2" />
             {
                 comments.map((comment) => (
-                    <div>
+                    <div key={comment._id}>
                         <p>
                             <span className="text-yellow-500">{comment.name}</span>: {comment.comment}
                         </p>

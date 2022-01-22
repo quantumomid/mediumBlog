@@ -1,6 +1,5 @@
-import Head from 'next/head'
 import React from 'react';
-import Posts from '../components/Posts';
+import Posts from '../components/posts/Posts';
 import { sanityClient } from "../sanity";
 import { Post } from '../typings';
 
@@ -36,11 +35,6 @@ const Home:React.FC<HomeProps> = ({ posts }) => {
   console.log({posts});
   return (
     <main className="max-w-7xl mx-auto">
-      <Head>
-        <title>Medium 2.0</title>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
-      </Head>
-
         <section className="flex justify-between items-center bg-yellow-400 border-y border-black py-10 lg:py-0">
           <div className="px-10 space-y-5">
             <h1 className="text-6xl max-w-xl font-serif">
@@ -50,7 +44,6 @@ const Home:React.FC<HomeProps> = ({ posts }) => {
           </div>
           <img className="hidden md:inline-flex h-32 lg:h-full" src="/images/mediumLetterLogo.png" alt="Medium logo with a capital bold letter M" />
         </section>
-        {/* Posts */}
         <Posts posts={posts} />
     </main>
   )
