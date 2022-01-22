@@ -1,11 +1,10 @@
 import { GetStaticProps } from "next";
 import React, { useState } from "react";
-import Header from "../../components/Header"
 import { sanityClient, urlFor } from "../../sanity"
 import { Post } from "../../typings";
-import PortableText from "react-portable-text";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Comments from "../../components/Comments";
+import Article from "../../components/Article";
 
 export const getStaticPaths = async () => {
     const query = `
@@ -95,80 +94,15 @@ const Post: React.FC<PostProps> = ({ post }) => {
         
     };
 
-    const PortableTextProps = {
-        className: "",
-        dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-        projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-        content: post.body,
-        serializers: {
-            
-                h1: (props: any) => (
-                    <h1 className="text-2xl font-bold my-5" {...props} />
-                ),
-                h2: (props: any) => (
-                    <h2 className="text-xl font-bold my-5" {...props} />
-                ),
-                li: ({children}: any) => (
-                    <li className="ml-4 list-disc">{children}</li>
-                ),
-                link: ({ href, children }: any) => (
-                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                        {children}
-                    </a>
-                )
-            
-        },
-    }
 
     return (
         <main>
-            <Header />
             <img 
                 className="w-full h-40 object-cover" 
                 src={urlFor(post.mainImage).url()!} 
                 alt={post.title}
             />
-            <article className="max-w-3xl mx-auto p-5">
-                <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
-                <h2 className="text-xl font-light text-gray-600 mb-2">{post.description}</h2>
-                <div className="flex items-center space-x-2">
-                    <img 
-                        className="h-10 w-10 rounded-full"
-                        src={urlFor(post.author.image).url()!} 
-                        alt={post.author.name} 
-                    />
-                    <p className="font-extralight text-gray-700 mb-2">
-                        Blog post by <span className="text-green-700 font-bold">{post.author.name}</span> - Published at {new Date(post._createdAt).toLocaleString("uk")}
-                    </p>
-                </div>
-                <div className="mt-10">
-                    <PortableText
-                        {...PortableTextProps}
-                        // className=""
-                        // dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
-                        // projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
-                        // content={post.body}
-                        // serializers={
-                        //     {
-                        //         h1: (props: any) => (
-                        //             <h1 className="text-2xl font-bold my-5" {...props} />
-                        //         ),
-                        //         h2: (props: any) => (
-                        //             <h2 className="text-xl font-bold my-5" {...props} />
-                        //         ),
-                        //         li: ({children}: any) => (
-                        //             <li className="ml-4 list-disc">{children}</li>
-                        //         ),
-                        //         link: ({ href, children }: any) => (
-                        //             <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                        //                 {children}
-                        //             </a>
-                        //         )
-                        //     }
-                        // }
-                    />
-                </div>
-            </article>
+            <Article post={post} />
             <hr className="max-w-lg my-5 mx-auto border-yellow-500" />
 
             {
