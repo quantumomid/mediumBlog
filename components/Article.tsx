@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import PortableText from "react-portable-text";
 import { urlFor } from "../sanity";
@@ -39,11 +40,16 @@ const Article:React.FC<ArticleProps> = ({ post }) => {
             <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
             <h2 className="text-xl font-light text-gray-600 mb-2">{post.description}</h2>
             <div className="flex items-center space-x-2">
-                <img 
-                    className="h-10 w-10 rounded-full"
-                    src={urlFor(post.author.image).url()!} 
-                    alt={post.author.name} 
-                />
+                <div className=" grid h-10 w-10 rounded-full overflow-hidden">
+                    <Image 
+                        src={urlFor(post.author.image).url()!} 
+                        alt={post.author.name}
+                        height={10}
+                        width={10}
+                        layout="responsive" 
+                        objectFit="cover"
+                    />
+                </div>
                 <p className="font-extralight text-gray-700 mb-2">
                     Blog post by <span className="text-green-700 font-bold">{post.author.name}</span> - Published at {new Date(post._createdAt).toLocaleString("uk")}
                 </p>

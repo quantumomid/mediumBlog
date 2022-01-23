@@ -2,6 +2,7 @@ import React from 'react';
 import Posts from '../components/posts/Posts';
 import { sanityClient } from "../sanity";
 import { Post } from '../typings';
+import Image from 'next/image';
 
 export const getServerSideProps = async () => {
   const query = `
@@ -42,7 +43,15 @@ const Home:React.FC<HomeProps> = ({ posts }) => {
             </h1>
             <h2>It's easy and free to post your thinking on any topic and connect with millions of readers.</h2>
           </div>
-          <img className="hidden md:inline-flex h-32 lg:h-full" src="/images/mediumLetterLogo.png" alt="Medium logo with a capital bold letter M" />
+          <div className="hidden self-start md:block h-32 w-4/12 lg:h-full">
+            <Image 
+              src="/images/MediumLetterLogo.png" 
+              alt="Medium logo with a capital bold letter M" 
+              height={100}
+              width={100}
+              layout="responsive"
+            />
+          </div>
         </section>
         <Posts posts={posts} />
     </main>

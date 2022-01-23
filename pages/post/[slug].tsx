@@ -7,6 +7,7 @@ import Comments from "../../components/Comments";
 import Article from "../../components/Article";
 import CustomHead from "../../components/CustomHead";
 import AddCommentForm from "../../components/add-comment-form/AddCommentForm";
+import Image from "next/image";
 
 export const getStaticPaths = async () => {
     const query = `
@@ -93,11 +94,16 @@ const Post: React.FC<PostProps> = ({ post }) => {
     return (
         <main>
             <CustomHead title={post.title} descriptionMetaContent={post.description} />
-            <img 
-                className="w-full h-40 object-cover" 
-                src={urlFor(post.mainImage).url()!} 
-                alt={post.title}
-            />
+            <div className="w-full h-40 overflow-hidden">
+                <Image 
+                    src={urlFor(post.mainImage).url()!} 
+                    alt={post.title}
+                    height={40}
+                    width={100}
+                    layout="responsive"
+                    objectFit="cover"
+                />
+            </div>
             <Article post={post} />
             <hr className="max-w-lg my-5 mx-auto border-yellow-500" />
 

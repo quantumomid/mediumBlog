@@ -1,11 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
     return (
         <header className="p-5 max-w-7xl mx-auto">
             <div className="flex items-center space-x-5">
                 <Link href="/">
-                    <img className="w-44 object-contain cursor-pointer" src="/images/mediumlogo.png" alt="Logo for Medium" />
+                    <div className="w-44 cursor-pointer">
+                        <Image 
+                            src="/images/mediumlogo.png" 
+                            alt="Logo for Medium"
+                            height={20}
+                            width={44}
+                            layout="responsive"
+                            objectFit="contain"
+                        />
+                    </div>
                 </Link>
                 <nav className="w-full flex justify-end md:justify-between">
                     <ul className="hidden md:inline-flex items-center space-x-5">
