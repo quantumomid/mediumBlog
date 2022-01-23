@@ -94,7 +94,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
     return (
         <main>
             <CustomHead title={post.title} descriptionMetaContent={post.description} />
-            <div className="w-full h-40 overflow-hidden">
+            <div className="inline-grid w-full h-40 overflow-hidden">
                 <Image 
                     src={urlFor(post.mainImage).url()!} 
                     alt={post.title}
