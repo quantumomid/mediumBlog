@@ -37,8 +37,8 @@ const Home:React.FC<HomeProps> = ({ posts }) => {
   return (
     <main className="max-w-7xl mx-auto">
         <section className="flex justify-between items-center bg-yellow-400 border-y border-black py-10 lg:py-0">
-          <div className="px-10 space-y-5">
-            <h1 className="text-6xl max-w-xl font-serif">
+          <div className="px-5 sm:px-10 space-y-5">
+            <h1 className="max-w-xl font-serif text-4xl sm:text-6xl">
               <span className="underline decoration-black decoration-4">Medium</span> is a place to write, read and connect
             </h1>
             <h2>It's easy and free to post your thinking on any topic and connect with millions of readers.</h2>

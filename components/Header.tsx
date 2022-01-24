@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Header = () => {
     return (
-        <header className="p-5 max-w-7xl mx-auto">
+        <header className="max-w-7xl mx-auto p-1 sm:p-5">
             <div className="flex items-center space-x-5">
                 <Link href="/">
                     <div className="w-44 cursor-pointer">

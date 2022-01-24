@@ -37,10 +37,10 @@ const Article:React.FC<ArticleProps> = ({ post }) => {
 
     return (
         <article className="max-w-3xl mx-auto p-5">
-            <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
+            <h1 className="text-3xl mb-3 mt-1 sm:mt-10">{post.title}</h1>
             <h2 className="text-xl font-light text-gray-600 mb-2">{post.description}</h2>
             <div className="flex items-center space-x-2">
-                <div className=" grid h-10 w-10 rounded-full overflow-hidden">
+                <div className="grid h-10 w-10 rounded-full overflow-hidden">
                     <Image 
                         src={urlFor(post.author.image).url()!} 
                         alt={post.author.name}
@@ -50,11 +50,11 @@ const Article:React.FC<ArticleProps> = ({ post }) => {
                         objectFit="cover"
                     />
                 </div>
-                <p className="font-extralight text-gray-700 mb-2">
+                <p className="font-extralight text-gray-700 mb-0 sm:mb-2">
                     Blog post by <span className="text-green-700 font-bold">{post.author.name}</span> - Published at {new Date(post._createdAt).toLocaleString("uk")}
                 </p>
             </div>
-            <div className="mt-10">
+            <div className="mt-5 sm:mt-10">
                 <PortableText
                     {...PortableTextProps}
                 />

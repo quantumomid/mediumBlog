@@ -11,7 +11,7 @@ interface PostCardProps {
 const PostCard:React.FC<PostCardProps> = ({ post }) => (
     <Link href={`/post/${post.slug.current}`}>
         <article className="group cursor-pointer border rounded-lg overflow-hidden">
-            <div className="h-60 w-full overflow-hidden object-cover group-hover:scale-105 transition-transform duration-200 ease-in-out">
+            <div className="h-40 sm:h-60 w-full overflow-hidden object-cover group-hover:scale-105 transition-transform duration-200 ease-in-out">
                 <Image 
                     src={urlFor(post.mainImage).url()!} 
                     alt={post.title}
