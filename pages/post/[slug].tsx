@@ -109,10 +109,10 @@ const Post: React.FC<PostProps> = ({ post }) => {
 
             {
                 hasCommentSubmitted ? (
-                    <div className="flex flex-col p-10 m-10 bg-yellow-500 text-white max-w-2xl mx-auto">
+                    <aside className="flex flex-col p-10 m-10 bg-yellow-500 text-white max-w-2xl mx-auto">
                         <h3 className="text-3xl font-bold">Thank you for submitting the comment</h3>
                         <p>The comment will appear below following approval.</p>
-                    </div>
+                    </aside>
                     )
                     :
                     <AddCommentForm post={post} onSubmit={onSubmit} handleSubmit={handleSubmit} errors={errors} register={register} />

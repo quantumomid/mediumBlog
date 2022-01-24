@@ -8,10 +8,9 @@ interface PostCardProps {
     post: Post;
 }
 
-const PostCard:React.FC<PostCardProps> = ({ post }) => {
-    return (
-        <Link href={`/post/${post.slug.current}`}>
-            <div className="group cursor-pointer border rounded-lg overflow-hidden">
+const PostCard:React.FC<PostCardProps> = ({ post }) => (
+    <Link href={`/post/${post.slug.current}`}>
+        <article className="group cursor-pointer border rounded-lg overflow-hidden">
             <div className="h-60 w-full overflow-hidden object-cover group-hover:scale-105 transition-transform duration-200 ease-in-out">
                 <Image 
                     src={urlFor(post.mainImage).url()!} 
@@ -22,12 +21,12 @@ const PostCard:React.FC<PostCardProps> = ({ post }) => {
                     objectFit="cover"
                 />
             </div>
-            <div className="flex justify-between p-5 bg-white">
-                <div >
-                    <p className="text-lg font-bold">{post.title}</p>
+            <section className="flex justify-between p-5 bg-white">
+                <div>
+                    <h1 className="text-lg font-bold">{post.title}</h1>
                     <p className="text-xs">{post.description} by {post.author.name}</p>
-                    </div>
-                <div className="grid h-12 w-12 rounded-full overflow-hidden">
+                </div>
+                <div className="grid h-12 w-12 rounded-full overflow-hidden mx-1">
                     <Image 
                         src={urlFor(post.author.image).url()!} 
                         alt={post.author.name}
@@ -37,10 +36,9 @@ const PostCard:React.FC<PostCardProps> = ({ post }) => {
                         objectFit="cover"
                     />
                 </div>
-            </div>
-            </div>
-        </Link>
-    )
-}
+            </ section>
+        </article>
+    </Link>
+);
 
 export default PostCard;

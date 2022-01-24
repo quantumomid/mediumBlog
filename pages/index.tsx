@@ -1,8 +1,8 @@
-import React from 'react';
-import Posts from '../components/posts/Posts';
+import React from "react";
+import Posts from "../components/posts/Posts";
 import { sanityClient } from "../sanity";
-import { Post } from '../typings';
-import Image from 'next/image';
+import { Post } from "../typings";
+import Image from "next/image";
 
 export const getServerSideProps = async () => {
   const query = `
